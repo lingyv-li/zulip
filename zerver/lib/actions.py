@@ -1782,7 +1782,8 @@ def check_send_message(sender: UserProfile, client: Client, message_type_name: s
                        forwarder_user_profile: Optional[UserProfile]=None,
                        local_id: Optional[str]=None,
                        sender_queue_id: Optional[str]=None) -> int:
-
+    if message_content == "welcome":
+        message_content = "Welcome to Zulip :octopus:"
     addressee = Addressee.legacy_build(
         sender,
         message_type_name,
